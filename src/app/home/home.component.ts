@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class HomeComponent {
 
 
-
     loading = false;
     users: User[];
     
@@ -86,11 +85,11 @@ export class HomeComponent {
         });
 
         // AgGrid
-        this.userService.getData().pipe().subscribe(myData => { 
-            this.rowData = myData;
-        }); 
+        // this.userService.getData().pipe().subscribe(myData => { 
+        //     this.rowData = myData;
+        // }); 
     }
-    myname = 'Gowtham';
+    myname = 'Gowsaratham';
     onchangeName() {
     this.myname = 'Angular';
   }

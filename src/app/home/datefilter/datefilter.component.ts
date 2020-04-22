@@ -22,8 +22,8 @@ export class DatefilterComponent implements OnInit {
                       {headerName: 'In Time', field: 'checkin_time',sortable: true, width: 150},
                       {headerName: 'Out Time', field: 'checkout_time', width: 150},
                       {headerName: 'Total Hours', field: 'total_hours', filter: true, width: 150}, 
-                      {headerName: 'City', field: "city", filter: true},
-                      {headerName: 'Area', field: "area", filter: true},
+                      {headerName: 'City', field: "city", filter: true,width: 150},
+                      {headerName: 'Area', field: "area", filter: true, width: 150},
                       {headerName: 'Face Recognized', field: 'face_checkin', filter: true, width: 100},
                   ];
 
@@ -48,7 +48,10 @@ export class DatefilterComponent implements OnInit {
 
    ngOnInit() { 
 
-    this.isShow = this.isShow; 
+    // this.isShow != this.isShow; 
+        this.userService.getDatacurrent().pipe().subscribe(myData => { 
+          this.rowData = myData;
+      }); 
 
    }
   
@@ -62,14 +65,20 @@ export class DatefilterComponent implements OnInit {
                   fromVal : this.fromval,
                   toVal: this.toval
             }
-        
-      
-          this.userService.getData(data).subscribe(myData => {             
-            this.rowData = myData;
-            this.isShow = !this.isShow; 
-            // console.log(this.rowData);
-        });
+            if(this.fromval == null){
+              alert("Hi Admin, Please select your From Date");
+              return false;
+            }
+            if(this.toval == null){
+              alert("Hi Admin, Please select your To Date");
+              return false;
+            }
 
+          if( this.fromval != null && this.toval != null){
+                this.userService.getDatafilter(data).subscribe(myData => {             
+                  this.rowData = myData;
+              });
+          }
       } 
 
       @Input() name: string;

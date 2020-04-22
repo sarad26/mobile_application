@@ -13,9 +13,12 @@ export class UserService {
     }
 
     // AgGrid
-    getData(data) {
-        console.log(data);
-        
+    getDatafilter(data) {
+        console.log(data);        
         return this.http.get<any>(`${report.apiUrl}/report/`,data);
+        // return this.http.get<any>(`${report.apiUrl}/report/22.04.20`);
+    }
+     getDatacurrent(){
+        return this.http.get<any>(`${report.apiUrl}/report/`);
     }
 }
