@@ -1,0 +1,55 @@
+<!-- <mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field> -->
+
+<!-- <h1>Date Range filter in Date Of Birth Column only</h1> -->
+<div class="">
+  <!-- <div>
+    <h1>saravanan: {{name}}</h1>
+    <button (click)="updateName()">Child</button>
+  </div> -->
+    <form class="date-block offset-md-4 pt-2" [formGroup]="filterForm">
+        <div class="date-block__list">
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="fromDate" 
+            placeholder="From Entry Date" 
+            formControlName="fromDate">
+          <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+          <mat-datepicker #fromDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+          <div class="date-block__list">
+        <mat-form-field>
+          <input matInput 
+            [matDatepicker]="toDate" 
+            placeholder="To Entry Date" 
+            formControlName="toDate">
+          <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+          <mat-datepicker #toDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <i class="fas fa-sign-in-alt" (click)="applyFilter()"></i>
+       <!-- <button class=" getbtn" >Submit</button> -->
+    </form>
+    <div class="datehite" *ngIf = "isShow">
+        <ag-grid-angular
+          #content 
+          style="width: 1500px; height: 550px;"
+          class="ag-theme-balham"
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+          animateRows="true"
+          [pagination]="true"
+          >
+          </ag-grid-angular>
+    </div>
+</div>
+
+
+
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

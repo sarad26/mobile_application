@@ -1,0 +1,49 @@
+﻿<!-- nav -->
+<nav class="" *ngIf="currentUser">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-5">
+                    <a href="https://d4insight.com/"><img src="https://d4insight.com/wp-content/uploads/2018/05/D4_Logo_TM_RGB-1.png" 
+                        style="width:60px; height: 40px;" alt="D4Insight">
+                    </a>
+                </div>
+                <div class="col-sm-7">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search Employer Name, Id, City">
+                        <div class="input-group-append">
+                          <button class="btn btn-success btn-bg go-btn" type="submit">Go</button>  
+                         </div>
+                      </div>
+
+                </div>
+
+            </div>
+           
+           
+        </div>
+        <div class="col-sm-4 menus">
+            <ul class="men_inner">
+                <li class="dropdown w-10"><i class="fas fa-user-circle"></i>
+                    <div class="dropdown-content">
+                        <ul class="guest_drop">
+                            <li><a href="#"><i class="far fa-envelope"></i>Notification</a></li>
+                            <li><a href="#"><i class="fas fa-user"></i>Account</a></li>
+                            <li><a routerLink="/services"><i class="fas fa-cog"></i>Services</a></li>
+                            <li>
+                            <a (click)="logout()"><i class="fas fa-sign-out-alt"></i>Logout</a>                            
+                            </li>
+                        
+                        </ul>
+                      
+                    </div>
+                </li>
+                <li class="w-10"><i (click)="download()" title="Download" class="fas fa-download"></i></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <router-outlet></router-outlet>
+
