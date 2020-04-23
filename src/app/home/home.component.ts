@@ -86,9 +86,9 @@ export class HomeComponent {
         });
 
         // AgGrid
-        this.userService.getData().pipe().subscribe(myData => { 
+        /*this.userService.getData().pipe().subscribe(myData => { 
             this.rowData = myData;
-        }); 
+        });*/ 
     }
     myname = 'Gowtham';
     onchangeName() {
