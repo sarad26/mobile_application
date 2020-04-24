@@ -11,11 +11,11 @@ export class UserService {
     getAll() {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
     }
-
     // AgGrid
-    getData(data) {
-        console.log(data);
-        
-        return this.http.get<any>(`${report.apiUrl}/report/`,data);
+    getDatafilter(data) {
+        return this.http.get<any>(`${report.apiUrl}/report/?from_date=`+data.myfrmdate+`&end_date=`+data.mytoval);
+    }
+     getDatacurrent(){
+        return this.http.get<any>(`${report.apiUrl}/report/`);
     }
 }

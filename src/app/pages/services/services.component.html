@@ -1,5 +1,18 @@
-<section class="serv_full">
-    <mat-grid-list cols="5" rowHeight="3:2">
+
+
+<section class="container-fluid serv_full">
+  <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <!-- <li class="breadcrumb-item " aria-current="page"><a (click)="logout()">Logout</a></li> -->
+          <li class="breadcrumb-item"><a  routerLink="/">Home</a></li>          
+          <li class="breadcrumb-item active" aria-current="page">Services</li>          
+        </ol>
+      </nav>
+    </div>
+    <div class="col-md-12">
+      <mat-grid-list cols="5" rowHeight="3:2">
         <mat-grid-tile role="listitem">1</mat-grid-tile>
         <mat-grid-tile>2</mat-grid-tile>
         <mat-grid-tile>3</mat-grid-tile>
@@ -16,4 +29,7 @@
         <mat-grid-tile>14</mat-grid-tile>
         <mat-grid-tile>15</mat-grid-tile>
       </mat-grid-list>
+    </div>
+  </div>
+
 </section>
