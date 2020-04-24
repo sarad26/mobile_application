@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {HttpModule} from '@angular/http';
-
+import {DatePipe} from '@angular/common';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
@@ -135,7 +135,9 @@ import { AccountsComponent } from './pages/accounts/accounts.component'// import
         AccountsComponent  
     ],
     providers: [
-          DatefilterComponent ,
+           DatePipe,
+          DatefilterComponent,
+           
           
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

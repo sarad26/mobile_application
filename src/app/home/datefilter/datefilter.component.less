@@ -35,12 +35,43 @@ table {
     height: 35px;
 }
 
-.fa-sign-in-alt{
-    font-size: 25px;
+.fa-sync-alt{
+    font-size: 20px;
     cursor: pointer;
     margin-top: 15px;
     margin-left: 10px;
+    transition: width 2s, height 2s, transform 2s;
+    height: 20px;
+    
+    // transition-duration: 10s;
 }
-.fa-sign-in-alt:hover{
-    font-size: 30px;
+.fa-sync-alt:hover{
+    font-size: 20px;
+    transform: rotate(360deg);
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #002e5b;
+  border-bottom: 16px solid #002e5b;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    background: gray;
+    display: none;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

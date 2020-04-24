@@ -1,38 +1,68 @@
 <!-- <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field> -->
-
+<!-- {{getfirstday}} -->
 <!-- <h1>Date Range filter in Date Of Birth Column only</h1> -->
-<div class="">
+<div class="fluid-container">
   <!-- <div>
     <h1>saravanan: {{name}}</h1>
     <button (click)="updateName()">Child</button>
   </div> -->
-    <form class="date-block offset-md-4 pt-2" [formGroup]="filterForm">
-        <div class="date-block__list">
-        <mat-form-field>
-          <input matInput 
-            [matDatepicker]="fromDate" 
-            placeholder="From Entry Date" 
-            formControlName="fromDate">
-          <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
-          <mat-datepicker #fromDate></mat-datepicker>
-        </mat-form-field>
+        <div class="row m-0">
+            <nav aria-label="breadcrumb" class="col-md-4">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><a (click)="logout()">Logout</a></li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                
+              </ol>
+            </nav>
+            <div class="col-md-8 ">
+              <form class="date-block pt-2" [formGroup]="filterForm">
+                  <div class="date-block__list">
+                  <!-- <mat-form-field>
+                    <input matInput 
+                      [matDatepicker]="fromDate" 
+                      placeholder="From Entry Date" 
+                      formControlName="fromDate">
+                      
+                    <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                    <mat-datepicker #fromDate></mat-datepicker>
+                  </mat-form-field> -->
+                  <mat-form-field>
+                    <input matInput 
+                      [matDatepicker]="fromDate" 
+                      placeholder="From Entry Date" 
+                      formControlName="fromDate"
+                      [value]="getfirstday">
+                    <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                    <mat-datepicker #fromDate></mat-datepicker>
+                  </mat-form-field> 
+                  
+                </div>
+                    <div class="date-block__list">
+                  <!-- <mat-form-field>
+                    <input matInput 
+                      [matDatepicker]="toDate" 
+                      placeholder="To Entry Date" 
+                      formControlName="toDate">
+                    <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                    <mat-datepicker #toDate></mat-datepicker>
+                  </mat-form-field> -->
+
+                  <mat-form-field>
+                    <!-- <mat-label>Value binding</mat-label> -->
+                    <input matInput [matDatepicker]="toDate" placeholder="To Entry Date"  [value]="datelive.value" formControlName="toDate">
+                    <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                    <mat-datepicker #toDate></mat-datepicker>
+                  </mat-form-field>
+
+                </div>
+                <i class="fas fas fa-sync-alt" (click)="applyFilter()"></i>
+                <!-- <button class=" getbtn" >Submit</button> -->
+              </form>
+          </div>
       </div>
-          <div class="date-block__list">
-        <mat-form-field>
-          <input matInput 
-            [matDatepicker]="toDate" 
-            placeholder="To Entry Date" 
-            formControlName="toDate">
-          <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
-          <mat-datepicker #toDate></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <i class="fas fa-sign-in-alt" (click)="applyFilter()"></i>
-       <!-- <button class=" getbtn" >Submit</button> -->
-    </form>
-    <div class="datehite" *ngIf = "isShow">
+    <div class="datehite">
         <ag-grid-angular
           #content 
           style="width: 1500px; height: 550px;"
@@ -45,9 +75,9 @@
           </ag-grid-angular>
     </div>
 </div>
+<div class="loader" id="loader"></div>
 
-
-
+<!-- <i class="fas fa-sync-alt"></i> -->
 
 
 <!-- Copyright 2018 Google Inc. All Rights Reserved.
